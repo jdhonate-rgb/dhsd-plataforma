@@ -2,6 +2,7 @@
 -- Uso: psql -v ON_ERROR_STOP=1 -f supabase/tests/rls_test.sql
 \set ON_ERROR_STOP on
 begin;
+insert into public.areas (codigo, nombre) values ('cartera', 'Cartera (prueba)'), ('laboratorio-clinico', 'Laboratorio (prueba)');
 insert into auth.users (id) values
   ('00000000-0000-0000-0000-0000000000a1'),  -- propietario
   ('00000000-0000-0000-0000-0000000000b1'),  -- cartera

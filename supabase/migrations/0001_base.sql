@@ -169,10 +169,9 @@ grant select on public.areas, public.perfiles, public.solicitud_eventos to authe
 grant insert, update, delete on public.areas, public.perfiles to authenticated;   -- limitado por RLS al Propietario
 grant select, insert, update on public.solicitudes, public.cargas to authenticated;
 
--- ---------- Datos iniciales (solo las áreas ya mencionadas por el Propietario) ----------
-insert into public.areas (codigo, nombre) values
-  ('cartera', 'Cartera'),
-  ('laboratorio-clinico', 'Laboratorio clínico');
+-- ---------- Áreas ----------
+-- No se crean áreas aquí: el Propietario aporta el listado oficial. Ejemplo para agregar una:
+--   insert into public.areas (codigo, nombre) values ('cartera', 'Cartera');
 
 -- ---------- Almacenamiento privado de Excel (solo en Supabase) ----------
 do $$

@@ -35,4 +35,4 @@ El esquema es PostgreSQL estándar con RLS, así que puede moverse a Supabase au
 - Web sin framework ni compilación: la misma idea de las otras apps del Propietario, fácil de mantener desde tablet y de publicar en GitHub Pages.
 - Todo el texto dinámico se inserta con `textContent`; la política CSP bloquea scripts y estilos en línea.
 - `supabase-js` y el lector de Excel (SheetJS) se cargan desde CDN con versión fija.
-- Solo existen las áreas Cartera y Laboratorio clínico, que son las únicas que el Propietario ha mencionado. El resto se agregan desde la tabla `areas`.
+- La base no trae áreas predefinidas: el Propietario entrega el listado oficial y se cargan en la tabla `areas`. Cartera y Laboratorio clínico aparecen solo como ejemplos en la demostración.
