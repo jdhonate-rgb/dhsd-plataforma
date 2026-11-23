@@ -6,7 +6,7 @@ Haz esto cuando tengas la cuenta de Supabase nueva. Ningún paso usa DH Rutas ni
 Ya están hechos los pasos 1, 2 y 5 con el proyecto `dhsd-plataforma` (`btkootcynsyrkufnikcq`, región us-west-2): el esquema (migraciones 0001 a 0003) está aplicado, el bucket `cargas` es privado y `web/config.js` apunta a ese proyecto con la clave pública `anon`. Faltan los pasos 3, 4 y 6.
 
 ## 3. Cargar las áreas
-Con el listado oficial que entregues (una línea por área; el código va en minúsculas, sin espacios ni tildes):
+Ya están cargadas **Admisiones** y **Facturación** (2026-11-23). Para agregar más, con el listado oficial que entregues (una línea por área; el código va en minúsculas, sin espacios ni tildes):
 ```sql
 insert into public.areas (codigo, nombre) values ('cartera', 'Cartera'), ('otra-area', 'Otra área');
 ```
