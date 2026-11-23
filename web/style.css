@@ -1,0 +1,32 @@
+:root{--az:#1f4e8c;--az2:#173b6a;--fondo:#f4f6fa;--tarj:#fff;--tx:#1b2430;--sub:#5b6676;--bor:#d9dfe9;--ok:#1b7f4b;--al:#b45309;--er:#b42318}
+@media (prefers-color-scheme:dark){:root{--fondo:#12171f;--tarj:#1a212c;--tx:#e8edf5;--sub:#9aa6b8;--bor:#2c3646;--az:#5b9bf0;--az2:#82b4f6}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.45 system-ui,Segoe UI,Roboto,sans-serif;background:var(--fondo);color:var(--tx)}
+.demo{background:#fde68a;color:#5c3d00;text-align:center;padding:.4rem 1rem;font-weight:600;font-size:.9rem}
+.barra{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;padding:.6rem 1rem;background:var(--tarj);border-bottom:1px solid var(--bor);position:sticky;top:0;z-index:5}
+.marca{display:flex;align-items:center;gap:.5rem;font-weight:700}.logo{background:var(--az);color:#fff;border-radius:8px;padding:.15rem .45rem}
+nav{display:flex;gap:.25rem;flex:1;flex-wrap:wrap}nav button{background:none;border:0;padding:.5rem .8rem;border-radius:8px;color:var(--sub);font:inherit;cursor:pointer}
+nav button[aria-current=page]{background:color-mix(in srgb,var(--az) 14%,transparent);color:var(--az);font-weight:600}
+.usuario{display:flex;gap:.6rem;align-items:center;font-size:.9rem;color:var(--sub)}
+main{max-width:1100px;margin:0 auto;padding:1rem 1rem 4rem;outline:0}h1{font-size:1.4rem;margin:.5rem 0 1rem}h2{font-size:1.1rem;margin:0 0 .6rem}
+.tarj{background:var(--tarj);border:1px solid var(--bor);border-radius:12px;padding:1rem;margin-bottom:1rem}
+.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.6rem;margin-bottom:1rem}
+.ficha{background:var(--tarj);border:1px solid var(--bor);border-radius:12px;padding:.7rem .9rem;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.ficha b{display:block;font-size:1.6rem;color:var(--az)}.ficha[aria-pressed=true]{outline:2px solid var(--az)}
+label{display:block;font-weight:600;margin:.8rem 0 .25rem}.ayuda{font-weight:400;color:var(--sub);font-size:.88rem;display:block}
+input,select,textarea{width:100%;font:inherit;padding:.55rem .65rem;border:1px solid var(--bor);border-radius:8px;background:var(--fondo);color:var(--tx)}
+textarea{min-height:5.5rem;resize:vertical}
+button.pri,button.sec,button.pel{font:inherit;border-radius:8px;padding:.55rem 1rem;cursor:pointer;border:1px solid var(--az)}
+button.pri{background:var(--az);color:#fff}button.sec{background:none;color:var(--az)}button.pel{background:none;color:var(--er);border-color:var(--er)}
+button:disabled{opacity:.5;cursor:not-allowed}.fila-btn{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.55rem .5rem;border-bottom:1px solid var(--bor);vertical-align:top}th{font-size:.82rem;color:var(--sub);text-transform:uppercase;letter-spacing:.03em}
+tr.clic{cursor:pointer}tr.clic:hover{background:color-mix(in srgb,var(--az) 7%,transparent)}
+.pill{display:inline-block;padding:.1rem .55rem;border-radius:999px;font-size:.82rem;border:1px solid var(--bor);white-space:nowrap}
+.pill.aprobada,.pill.cerrada{color:var(--ok);border-color:var(--ok)}.pill.rechazada{color:var(--er);border-color:var(--er)}.pill.pendiente_decision{color:var(--al);border-color:var(--al)}
+.alerta{border-left:4px solid var(--al);background:color-mix(in srgb,var(--al) 10%,transparent);padding:.6rem .8rem;border-radius:8px;margin-bottom:1rem}
+.error{color:var(--er);font-weight:600}.sub{color:var(--sub)}.cols{display:flex;flex-wrap:wrap;gap:.3rem;margin:.4rem 0}.cols span{background:var(--fondo);border:1px solid var(--bor);border-radius:6px;padding:.05rem .45rem;font-size:.85rem}
+.dos{display:grid;grid-template-columns:1fr;gap:1rem}@media(min-width:860px){.dos{grid-template-columns:3fr 2fr}}
+dl{margin:0}dt{font-weight:600;margin-top:.7rem}dd{margin:.1rem 0 0;white-space:pre-wrap}
+.linea{border-left:2px solid var(--bor);padding-left:.8rem;margin:.4rem 0;font-size:.9rem}
+#toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--az2);color:#fff;padding:.6rem 1rem;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw}#toast.ver{opacity:1}
+.centro{max-width:420px;margin:3rem auto}@media(max-width:640px){.ocultar-m{display:none}}
+.tarj h2{margin-top:1.2rem}.tarj>h2:first-child{margin-top:0}
