@@ -1,4 +1,4 @@
-// Service worker mínimo: guarda la "cáscara" de la app para abrir rápido.
+// Service worker mínimo (v1): guarda la "cáscara" de la app para abrir rápido.
 // Nunca guarda respuestas de la base de datos ni de Supabase.
 const V = 'dhsd-plataforma-v1';
 const CASCARA = ['./', 'index.html', 'style.css', 'app.js', 'lib.js', 'datos.js', 'config.js', 'icon.svg', 'manifest.webmanifest'];
