@@ -2,16 +2,8 @@
 
 Haz esto cuando tengas la cuenta de Supabase nueva. Ningún paso usa DH Rutas ni otros proyectos.
 
-## 1. Crear el proyecto
-1. En la cuenta nueva: **New project**, nombre `dhsd-plataforma`, región cercana (por ejemplo São Paulo), contraseña de base de datos larga. Guárdala en tu bóveda; no me la envíes.
-2. Entra a **Project Settings → API** y copia solo la **Project URL** y la clave **anon / publishable**. Esas dos son públicas.
-
-## 2. Crear las tablas
-Hay dos caminos; el más simple desde tablet:
-- **Si me das acceso a la cuenta** (conector de Supabase): yo aplico `supabase/migrations/0001_base.sql` y verifico las políticas.
-- **A mano:** SQL Editor → pegar el contenido de `0001_base.sql` → Run.
-
-Después, en **Storage**, comprueba que existe el bucket `cargas` y que está en **privado**.
+## Estado (2026-11-23)
+Ya están hechos los pasos 1, 2 y 5 con el proyecto `dhsd-plataforma` (`btkootcynsyrkufnikcq`, región us-west-2): el esquema (migraciones 0001 a 0003) está aplicado, el bucket `cargas` es privado y `web/config.js` apunta a ese proyecto con la clave pública `anon`. Faltan los pasos 3, 4 y 6.
 
 ## 3. Cargar las áreas
 Con el listado oficial que entregues (una línea por área; el código va en minúsculas, sin espacios ni tildes):
@@ -37,8 +29,8 @@ insert into public.areas (codigo, nombre) values ('cartera', 'Cartera'), ('otra-
 ## 4. Apagar el registro público
 **Authentication → Providers → Email**: desactiva *Allow new users to sign up*. Los usuarios los creas tú.
 
-## 5. Conectar la web
-Edita `web/config.js` con la Project URL y la clave anon. No pongas ninguna otra clave. Al guardar, la web deja de ser demostración y pide ingreso.
+## 5. Conectar la web (hecho)
+`web/config.js` ya tiene la URL y la clave anon. Con esos valores la web deja de ser demostración y pide ingreso. Si algún día cambias de proyecto, edita solo esas dos líneas y ninguna otra clave.
 
 ## 6. Probar
 1. Ingresa como Propietario y crea una solicitud de prueba.

@@ -2,7 +2,7 @@
 
 Plataforma central de DH SOFTWARE DATA para recibir **solicitudes de módulos** y **reportes en Excel** de cada área, y ver el estado de todo en un tablero.
 
-> Estado: **prototipo en modo demostración**. La web funciona sin servidor con datos de ejemplo. El esquema de base de datos está probado en PostgreSQL 16 y espera su proyecto de Supabase. No hay datos reales ni producción.
+> Estado: **prototipo conectado a su propio proyecto de Supabase (`dhsd-plataforma`), sin datos reales**. El esquema está aplicado y probado; falta crear el usuario del Propietario y cargar las áreas. Para ver la web en modo demostración, deja vacíos `SUPABASE_URL` y `SUPABASE_ANON_KEY` en `web/config.js`.
 
 ## Cómo encaja con el resto
 
@@ -36,14 +36,15 @@ flowchart LR
 npm run serve      # abre http://localhost:8080
 ```
 
-Sin instalar nada más. Con `web/config.js` vacío funciona en demostración.
+Con la configuración actual pedirá ingreso con un usuario de Supabase. Para la demostración con datos de ejemplo, deja vacíos los dos valores de `web/config.js`.
 
 ## Pruebas
 
 ```bash
 npm test                                   # lógica de la web
 # Base de datos (PostgreSQL 16):
-psql -f supabase/tests/00_stub_supabase.sql && psql -f supabase/migrations/0001_base.sql && psql -f supabase/tests/rls_test.sql
+psql -f supabase/tests/00_stub_supabase.sql && for f in supabase/migrations/*.sql; do psql -f $f; done && psql -f supabase/tests/rls_test.sql
+node tests/secretos.mjs                    # busca secretos
 ```
 
 ## Siguiente paso

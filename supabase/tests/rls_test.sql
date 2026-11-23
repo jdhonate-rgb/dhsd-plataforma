@@ -59,6 +59,23 @@ insert into public.cargas (area_id, nombre_archivo, ruta, tamano_bytes)
   select id, 'cartera.xlsx', id::text || '/cartera.xlsx', 1000 from public.areas where codigo = 'laboratorio-clinico';
 insert into res values ('laboratorio sube carga propia', (select count(*) = 1 from public.cargas));
 
+-- Un usuario registrado SIN perfil no ve nada
+reset role;
+insert into auth.users (id) values ('00000000-0000-0000-0000-0000000000d1');
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-0000000000d1';
+insert into res values ('usuario sin perfil no ve áreas', (select count(*) = 0 from public.areas));
+insert into res values ('usuario sin perfil no ve solicitudes', (select count(*) = 0 from public.solicitudes));
+do $$ begin
+  begin
+    insert into public.solicitudes (area_id, titulo, proceso_actual, problema, resultados_esperados)
+      values ((select id from public.areas where codigo = 'cartera'), 'Intento sin perfil', 'x', 'x', 'x');
+    insert into res values ('usuario sin perfil no crea solicitudes', false);
+  exception when insufficient_privilege or check_violation then
+    insert into res values ('usuario sin perfil no crea solicitudes', true);
+  end;
+end $$;
+
 -- Anónimo no ve nada
 set local role anon;
 do $$ begin

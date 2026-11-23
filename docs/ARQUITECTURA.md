@@ -11,8 +11,9 @@
 | Componente | Estado |
 |---|---|
 | Web PWA: ingreso, nueva solicitud, tablero, detalle y decisión, carga de Excel con vista previa de columnas | IMPLEMENTED en modo demostración (probado en navegador) |
-| Esquema: áreas, perfiles, solicitudes, bitácora, cargas, reglas de transición, RLS, almacenamiento privado | TESTED en PostgreSQL 16 con 12 pruebas de seguridad (usa un stub de Supabase) |
-| Conexión a Supabase real (Auth, Storage, políticas de `storage.objects`) | PENDING: espera el proyecto del Propietario; las políticas de Storage no se pueden probar sin Supabase |
+| Esquema: áreas, perfiles, solicitudes, bitácora, cargas, reglas de transición, RLS, almacenamiento privado | TESTED en PostgreSQL 16 con 15 pruebas de seguridad (usa un stub de Supabase) y en Supabase real |
+| Proyecto Supabase `dhsd-plataforma` (cuenta del Propietario): migraciones 0001–0003 aplicadas, bucket `cargas` privado, 0 avisos de seguridad del asesor de Supabase | VERIFIED el 2026-11-23. 14 pruebas de seguridad simulando a cada rol directamente en la base real (incluidas las políticas de archivos); datos de prueba borrados |
+| Prueba por HTTP (ingreso con correo y contraseña desde la web, subida real de archivos) | PENDING: la sesión de Claude no alcanza `supabase.co`; la hace el Propietario al crear su usuario |
 | Cargador de Excel → tablas de staging y validación | PROPOSED: no construido. Opciones: función Edge de Supabase o n8n |
 | Creación de la Issue al aprobar y vínculo con el Project #6 | PROPOSED: al inicio manual (el Propietario anota el n.º de Issue en el detalle) para no crear tokens |
 | Resumen hacia el Handbook por PR | PROPOSED |

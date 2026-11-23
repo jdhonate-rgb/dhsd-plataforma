@@ -42,11 +42,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Buscar secretos obvios
-        run: |
-          if grep -rEn --exclude-dir=.git --exclude-dir=node_modules --exclude=ci.yml \
-            -e 'service_role[^A-Za-z]*[:=][^,;]*eyJ' -e 'eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}' \
-            -e 'sb_secret_[A-Za-z0-9]+' -e 'postgres(ql)?://[^ ]+:[^ @]+@' . ; then
-            echo "::error::Posible secreto en el repositorio"; exit 1
-          fi
-          echo "Sin secretos obvios"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Buscar secretos (solo se permite la clave anon pública)
+        run: node tests/secretos.mjs
